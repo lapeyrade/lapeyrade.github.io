@@ -51,46 +51,48 @@ sections.forEach(section => observer.observe(section));
 // Dark / Light Mode Toggle
 // ============================================
 
-const themeButtons = document.querySelectorAll("#modeToggle, #modeToggle2");
+const btn = document.getElementById("modeToggle");
+const btn2 = document.getElementById("modeToggle2");
 const themeIcons = document.querySelectorAll(".icon");
 const currentTheme = localStorage.getItem("theme");
 
-// Apply saved theme on load
 if (currentTheme === "dark") {
   setDarkMode();
 }
 
-// Add event listeners to toggle buttons
-themeButtons.forEach(button => button.addEventListener("click", setTheme));
+btn.addEventListener("click", function () {
+  setTheme();
+});
+
+btn2.addEventListener("click", function () {
+  setTheme();
+});
 
 function setTheme() {
-  if (document.body.getAttribute("theme") === "dark") {
+  let currentTheme = document.body.getAttribute("theme");
+
+  if (currentTheme === "dark") {
     setLightMode();
   } else {
     setDarkMode();
   }
 }
 
-// Set Dark Mode
 function setDarkMode() {
   document.body.setAttribute("theme", "dark");
   localStorage.setItem("theme", "dark");
-  updateIcons();
+
+  themeIcons.forEach((icon) => {
+    icon.src = icon.getAttribute("src-dark");
+  });
 }
 
-// Set Light Mode
 function setLightMode() {
   document.body.removeAttribute("theme");
   localStorage.setItem("theme", "light");
-  updateIcons();
-}
 
-// Update Theme Icons
-function updateIcons() {
-  themeIcons.forEach(icon => {
-    icon.src = document.body.getAttribute("theme") === "dark"
-      ? icon.dataset.dark
-      : icon.dataset.light;
+  themeIcons.forEach((icon) => {
+    icon.src = icon.getAttribute("src-light");
   });
 }
 
