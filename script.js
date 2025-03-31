@@ -29,45 +29,50 @@ if (backToTopButton) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
+
+// ============================================
+// Dark / Light Mode Toggle
+// ============================================
+
+const themeButtons = document.querySelectorAll("#modeToggle, #modeToggle2");
 const themeIcons = document.querySelectorAll(".icon");
 const currentTheme = localStorage.getItem("theme");
 
+// Apply saved theme on load
 if (currentTheme === "dark") {
   setDarkMode();
 }
 
-btn.addEventListener("click", function () {
-  setTheme();
-});
-
-btn2.addEventListener("click", function () {
-  setTheme();
-});
+// Add event listeners to toggle buttons
+themeButtons.forEach(button => button.addEventListener("click", setTheme));
 
 function setTheme() {
-  let currentTheme = document.body.getAttribute("theme");
-
-  if (currentTheme === "dark") {
+  if (document.body.getAttribute("theme") === "dark") {
     setLightMode();
   } else {
     setDarkMode();
   }
 }
 
+// Set Dark Mode
 function setDarkMode() {
   document.body.setAttribute("theme", "dark");
   localStorage.setItem("theme", "dark");
-
-  themeIcons.forEach((icon) => {
-    icon.src = icon.getAttribute("src-dark");
-  });
+  updateIcons();
 }
 
+// Set Light Mode
 function setLightMode() {
   document.body.removeAttribute("theme");
   localStorage.setItem("theme", "light");
+  updateIcons();
+}
 
-  themeIcons.forEach((icon) => {
-    icon.src = icon.getAttribute("src-light");
+// Update Theme Icons
+function updateIcons() {
+  themeIcons.forEach(icon => {
+    icon.src = document.body.getAttribute("theme") === "dark"
+      ? icon.dataset.dark
+      : icon.dataset.light;
   });
 }
