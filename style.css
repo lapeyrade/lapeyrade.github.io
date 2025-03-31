@@ -32,6 +32,10 @@
   --container-border: rgb(92, 92, 92);
 }
 
+[theme="dark"] #backToTop svg {
+  stroke: white;
+}
+
 * {
   margin: 0;
   padding: 0;
