@@ -11,10 +11,24 @@ function toggleMenu() {
   }
 }
 
-// Dark / light mode
+// ============================================
+// Back to Top Button
+// ============================================
 
-const btn = document.getElementById("modeToggle");
-const btn2 = document.getElementById("modeToggle2");
+const backToTopButton = document.getElementById("backToTop");
+
+if (backToTopButton) {
+  window.addEventListener("scroll", () => {
+    const shouldShow = window.scrollY > 200;
+    if (backToTopButton.style.display !== (shouldShow ? "block" : "none")) {
+      backToTopButton.style.display = shouldShow ? "block" : "none";
+    }
+  });
+
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 const themeIcons = document.querySelectorAll(".icon");
 const currentTheme = localStorage.getItem("theme");
 
