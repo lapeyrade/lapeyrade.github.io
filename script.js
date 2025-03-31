@@ -31,6 +31,23 @@ if (backToTopButton) {
 }
 
 // ============================================
+// Fade-in Effect for Sections
+// ============================================
+
+const sections = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      obs.unobserve(entry.target); // Stop observing once visible
+    }
+  });
+}, { threshold: 0.1 });
+
+sections.forEach(section => observer.observe(section));
+
+// ============================================
 // Dark / Light Mode Toggle
 // ============================================
 
