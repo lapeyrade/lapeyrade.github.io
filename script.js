@@ -76,3 +76,12 @@ function updateIcons() {
       : icon.dataset.light;
   });
 }
+
+// ============================================
+// Dynamic Year in Footer
+// ============================================
+
+const yearElement = document.getElementById("currentYear");
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
