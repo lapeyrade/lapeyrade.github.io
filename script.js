@@ -54,10 +54,14 @@ sections.forEach(section => observer.observe(section));
 const btn = document.getElementById("modeToggle");
 const btn2 = document.getElementById("modeToggle2");
 const themeIcons = document.querySelectorAll(".icon");
-const currentTheme = localStorage.getItem("theme");
+const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const savedTheme = localStorage.getItem("theme");
+const currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
 
 if (currentTheme === "dark") {
   setDarkMode();
+} else {
+  setLightMode();
 }
 
 btn.addEventListener("click", function () {
