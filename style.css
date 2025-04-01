@@ -41,7 +41,7 @@
   padding: 0;
 }
 
-h3 {
+h3, h4 {
   color: var(--secondary-color);
 }
 
@@ -389,7 +389,7 @@ section {
 
 .article-container {
   display: flex;
-  text-align: initial;
+  /* text-align: initial; */
   flex-wrap: wrap;
   flex-direction: row;
   gap: 2.5rem;
