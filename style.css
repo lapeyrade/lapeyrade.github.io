@@ -328,6 +328,8 @@ section {
   gap: 2rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .about-details-container {
@@ -393,11 +395,9 @@ section {
 
 .article-container {
   display: flex;
-  /* text-align: initial; */
   flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
+  gap: 2rem;
+  justify-content: center;
 }
 
 article {
