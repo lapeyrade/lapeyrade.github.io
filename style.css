@@ -41,7 +41,8 @@
   padding: 0;
 }
 
-h3, strong {
+h3,
+strong {
   color: var(--secondary-color);
 }
 
@@ -225,6 +226,7 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
+  aspect-ratio: 1/1;
 }
 
 .section__text {
@@ -367,6 +369,7 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
+  aspect-ratio: 1/1;
 }
 
 /* EXPERIENCE SECTION */
@@ -453,8 +456,10 @@ article .icon {
   background: var(--background-color);
   margin: 2rem auto;
   padding: 0.5rem;
-  max-width: 850px; /* make the entire container wider */
-  width: 90%; /*  make the container responsive */
+  max-width: 850px;
+  /* make the entire container wider */
+  width: 90%;
+  /*  make the container responsive */
 }
 
 .contact-info-container {
