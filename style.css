@@ -263,6 +263,7 @@ section {
 .icon {
   cursor: pointer;
   height: 2rem;
+  aspect-ratio: 1/1;
 }
 
 /* BUTTONS */
